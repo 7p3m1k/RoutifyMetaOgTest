@@ -3,14 +3,16 @@
 
     let dataTest;
     let dataNote;
-    let dataImg;
+		let dataImg;
+		let moo = {};
 
     const getData = async() => {
         const res = await fetch("https://us-central1-allius.cloudfunctions.net/getUserBasicInfo?nickname=david");
-        const loo = await res.json()
-        dataTest = await loo.name
-        dataNote = await loo.note
-        dataImg = await loo.photo_url
+        let loo = await res.json()
+        // dataTest = await loo.name
+        // dataNote = await loo.note
+				// dataImg = await loo.photo_url
+				moo = loo;
         $ready()
     }
     getData();
@@ -20,9 +22,9 @@
 <h1>hello</h1>
 
 <svelte:head>
-    <title>{dataTest}</title>
-    <meta property="og:title" content={dataTest}/>
-    <meta property="og:image" content={dataImg}/>
-    <meta property="og:description" content={dataNote}/>
+    <title>{moo.title}</title>
+    <meta property="og:title" content={moo.name}/>
+    <meta property="og:image" content={moo.photo_url}/>
+    <meta property="og:description" content={moo.note}/>
 </svelte:head>
 
