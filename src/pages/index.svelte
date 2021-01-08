@@ -1,23 +1,20 @@
 <script>
-import RoutifyIntro from './example/_components/RoutifyIntro.svelte';
-import { metatags } from '@roxi/routify';
-import { onMount } from 'svelte';
+    import RoutifyIntro from './example/_components/RoutifyIntro.svelte';
+    import { metatags } from '@roxi/routify';
+    import { onMount } from 'svelte';
 
-    // const fetchTitle = (async()=> {
-    //     const response = await fetch("https://us-central1-allius.cloudfunctions.net/getUserBasicInfo?nickname=david")
-    //     return await response.json()
-    // })();
+    const fetchTitle = (async()=> {
+        const response = await fetch("https://us-central1-allius.cloudfunctions.net/getUserBasicInfo?nickname=david");
+        let testData = await response.json();
+        await console.log(testData.name);
+        return await testData.name;
+    })();
 
-    onMount(async() => {
-        const res = await fetch("https://us-central1-allius.cloudfunctions.net/getUserBasicInfo?nickname=david");
-        
+
+    onMount(() => {
+        metatags.title = fetchTitle();
     })
 
 </script>
 
 <RoutifyIntro />
-
-<!-- {#await fetchTitle}
-{:then data}
-<h1>{data.name}</h1>
-{/await} -->
