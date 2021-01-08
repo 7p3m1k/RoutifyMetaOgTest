@@ -1,7 +1,7 @@
 <script>
   import { Router } from "@roxi/routify";
   import { routes } from "../.routify/routes";
-  import Meta from './Meta.svelte'
+  import Meta from "./meta.svelte";
 	
 	const metadata = {
 		title: 'Svelte is Awesome',

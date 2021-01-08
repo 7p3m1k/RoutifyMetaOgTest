@@ -1,6 +1,7 @@
 <script>
   export let metadata = {};
 </script>
+
 <svelte:head>
   {#if metadata.title}
     <title>{metadata.title}</title>
@@ -28,8 +29,8 @@
     <meta property="og:url" content={metadata.url} />
     <meta property="twitter:url" content={metadata.url} />
   {/if}
- 	{#if metadata.type}
-	  <meta property="og:type" content={metadata.type} />
+  {#if metadata.type}
+    <meta property="og:type" content={metadata.type} />
   {/if}
   <meta property="twitter:card" content={metadata.twitterCard || "summary_large_image"} />
 </svelte:head>
