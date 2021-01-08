@@ -21,7 +21,8 @@
 
 <svelte:head>
     <title>{dataTest}</title>
-    <description>{dataNote}</description>
-    <img src={dataImg} alt="ss"/>
+    <meta property="og:title" content={dataTest}/>
+    <meta property="og:image" content={dataImg}/>
+    <meta property="og:description" content={dataNote}/>
 </svelte:head>
 
